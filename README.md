@@ -10,55 +10,54 @@ competition.
 
 ## What the image shows
 
-The masthead reads "THE WORLD TODAY — Sunday 22 November 2026". The lead
-story, "Climate Talks Stall, AI Stocks Fall", pairs two panels:
+The masthead reads "THE WORLD TODAY — Sunday 22 November 2026". The page
+packs **42 numbered stories across 7 regions** (N.America, Latin America,
+Europe, Middle East, Africa, Asia-Pacific, World-Space-Sport), each with
+its source agency and a confidence tag (REPORTED / CLAIM / DISPUTED /
+FORECAST), plus a world map with pins 1–42 matching the story numbers, a
+UTC timeline strip, a DAY IN NUMBERS strip and a DATE CHECK box that lists
+other-day news excluded from the count.
 
-- **COP31, Antalya** — nearly 200 nations remain deadlocked into Sunday
-  overtime over fossil-fuel language and climate finance; the draft drops
-  explicit fossil-fuel wording and a $120bn adaptation target, and the EU
-  warns it is "a good deal or no deal" while the text admits the 1.5°C
-  limit will be overshot.
-- **AI Bubble Pops** — Anthropic's record IPO (briefly above $2 trillion)
-  tumbles 8.5% as the Nasdaq falls 5.3% (wiping out its 2026 gains), the
-  S&P 500 drops 3.7% into correction territory and Nvidia falls 14%, with
-  Asian markets plunging in the global sell-off.
+Three illustrated leads:
 
-Four further stories fill the page:
+- **COP31 collapses, Antalya** — no consensus among 190+ countries; the
+  Antalya Pact is not gavelled, the fossil-fuel phase-out phrase is
+  stripped from drafts, 100+ countries fight to keep it, the $120bn
+  adaptation target is dropped and 90+ countries sign an electrification
+  pledge (2.8°C on current policies — FORECAST, UN).
+- **Iran strikes Bahrain + Hormuz tankers** — missile and drone waves at
+  US bases in Bahrain; IRGC CLAIM of 2 Patriot radars destroyed, CENTCOM
+  calls an F-16 damage claim FALSE (DISPUTED); 3 tankers hit Saturday,
+  25 in 7 days.
+- **Ukraine: Kyiv 14 missing; Kryvyi Rih double-tap** — a drone partly
+  collapses a block at Dymer (14 unaccounted), 186 attack drones with
+  161 stopped overnight, and a double-tap on rescuers in Kryvyi Rih
+  (2 dead, 60+ injured).
 
-- **Israel / Coalition Talks** — Gadi Eisenkot, tasked by President Herzog
-  to form the next government (67 recommendations vs 46 for Netanyahu),
-  invites Netanyahu's party to coalition talks; Netanyahu remains caretaker
-  prime minister and no bloc holds 61 of 120 Knesset seats.
-- **Mexico / Cartel Boss Taken** — "El Chapo Isidro" (Fausto Isidro Meza
-  Flores), one of the FBI's ten most wanted with a $5 million reward, is
-  captured in Guasave, Sinaloa; the firefight kills 11 people amid
-  helicopters and burning trucks, with US intelligence credited.
-- **Space / Mercury Arrival** — the ESA/JAXA BepiColombo mission reaches
-  Mercury after an eight-year journey, its twin orbiters MPO and Mio
-  captured by the planet ahead of science operations from April 2027;
-  NASA's Voyager 1 is now one light-day from Earth.
-- **Cricket / Record 720/9** — India declare at 720/9 in Wellington against
-  New Zealand, the highest Test total in New Zealand, built on centuries
-  from KL Rahul (136) and Rishabh Pant (128); New Zealand trail by 352 on
-  Day 4.
-
-A footer line adds three more of the day's stories: the ATP Finals title
-decider between Carlos Alcaraz and Alexander Zverev, France's fourth
-weekend of cost-of-living protests, and India passing ten million HPV
-vaccine doses.
+Twelve picture cards cover the AI-stock correction (S&P 6,910, Nasdaq
+−5.3%), the capture of "El Chapo Isidro" in Mexico, Shenzhen summit
+fallout, the ICJ Myanmar genocide finding, Israel's coalition maths
+(67 vs 46, 61/120 needed), the Indonesia candy-factory fire,
+BepiColombo's arrival at Mercury, Korea's education minister resigning
+over AI cheating, the FBI database breach, Denmark expelling a Russian
+attaché, Gaza/West Bank, and Nigeria's boat disaster (24 dead). Twenty-
+seven one-line briefs (16–42) complete the day, from a Peru M6.7 quake
+and the EU–Indonesia trade deal (98.5% of tariffs scrapped) to a CRISPR
+cholesterol therapy and the day's sport.
 
 ## How it was made
 
-`make_image.py` (Python 3 + Pillow) draws the whole page from shapes and
-text only — no photographs and no network access — and writes `entry.png`
-(1024×1024 PNG). The entry program `main.ts` (Node 22, standard library
-only) copies `entry.png` to `/output/entry.png`, so every run produces
-identical bytes.
+`make_image.html` (plain HTML/CSS, no photographs, no network access)
+draws the whole page; headless Chromium screenshots it at 1024×1024 to
+produce `entry.png`. The entry program `main.ts` (Node 22, standard
+library only) copies `entry.png` to `/output/entry.png`, so every run
+produces identical bytes.
 
 To regenerate the image:
 
 ```sh
-python3 make_image.py
+chromium --headless=new --disable-gpu --no-sandbox --hide-scrollbars \
+  --window-size=1024,1024 --screenshot=entry.png "file://$PWD/make_image.html"
 ```
 
 To run the entry program locally:

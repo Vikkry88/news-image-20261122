@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1024px; height:1024px; background:#f7f2e7; color:#16130e; font-family:'Noto Sans',sans-serif; overflow:hidden; }
+  .page { width:1024px; height:1024px; padding:6px 11px 3px; display:flex; flex-direction:column; gap:4px; }
+  header { background:#14263f; color:#fff; padding:5px 12px 6px; display:flex; justify-content:space-between; align-items:flex-end; }
+  header h1 { font-family:'Noto Serif',serif; font-size:26px; letter-spacing:1px; line-height:1; }
+  header .sub { font-size:11.5px; margin-top:2px; color:#ffd9a8; font-weight:700; }
+  header .meta { text-align:right; font-size:10.5px; line-height:1.35; color:#dbe7f5; }
+  header .meta b { color:#fff; font-size:13px; }
+  .kick { font-size:9px; font-weight:800; letter-spacing:.6px; text-transform:uppercase; }
+  .tag { display:inline-block; padding:0 4px; border-radius:2px; color:#fff; font-size:8.5px; font-weight:800; vertical-align:1px; }
+  .rep { background:#1e7a34; } .clm { background:#b8860b; } .dis { background:#b02a1e; } .frc { background:#5b5bd6; }
+  .num { display:inline-block; min-width:17px; text-align:center; background:#14263f; color:#fff; font-weight:800; font-size:10px; border-radius:2px; padding:1px 2px; margin-right:4px; }
+  /* leads */
+  .leads { display:grid; grid-template-columns:1fr 1fr 1fr; gap:7px; }
+  .lead { border:1.5px solid #14263f; background:#fffdf7; padding:5px 9px 4px; }
+  .lead h2 { font-size:17px; line-height:1.1; margin:2px 0 3px; font-weight:900; }
+  .lead p { font-size:10.2px; line-height:1.3; }
+  .lead .src { font-size:8.8px; color:#555; margin-top:2px; }
+  .stats { display:flex; gap:5px; margin-top:5px; }
+  .stat { flex:1; background:#14263f; color:#fff; text-align:center; padding:1px 1px 1px; }
+  .stat b { display:block; font-size:12.5px; line-height:1.05; }
+  .stat span { font-size:7.8px; text-transform:uppercase; letter-spacing:.3px; color:#ffd9a8; }
+  /* middle */
+  .mid { display:grid; grid-template-columns:648px 1fr; gap:7px; flex:1; }
+  .cards { display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:repeat(4,1fr); gap:5px; }
+  .card { border:1px solid #8a7f63; background:#fffdf7; padding:3px 6px 2px; }
+  .card h3 { font-size:11.4px; line-height:1.1; margin:1px 0 2px; font-weight:900; }
+  .card p { font-size:9.4px; line-height:1.25; }
+  .card .src { font-size:8.5px; color:#555; margin-top:2px; }
+  .rail { display:flex; flex-direction:column; gap:6px; }
+  .box { border:1px solid #8a7f63; background:#fffdf7; padding:4px 7px; }
+  .box h4 { font-size:10.5px; letter-spacing:.5px; text-transform:uppercase; border-bottom:1.5px solid #14263f; padding-bottom:2px; margin-bottom:4px; }
+  .mapwrap { position:relative; width:100%; height:176px; background:#dcebf5; }
+  .pin { position:absolute; width:13px; height:13px; margin:-6.5px 0 0 -6.5px; border-radius:50%; background:#b02a1e; color:#fff; font-size:7.5px; font-weight:800; text-align:center; line-height:13px; border:.5px solid #fff; }
+  .tl { font-size:9.7px; line-height:1.45; }
+  .tl b { color:#b02a1e; }
+  .dc { font-size:9.6px; line-height:1.42; }
+  .dc b { color:#14263f; }
+  /* briefs */
+  .briefs { border:1.5px solid #14263f; background:#fffdf7; padding:3px 9px 2px; }
+  .briefs h4 { font-size:10.5px; letter-spacing:.5px; text-transform:uppercase; margin-bottom:2px; }
+  .bcols { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; }
+  .bcol h5 { font-size:9.3px; color:#b02a1e; letter-spacing:.5px; margin:1px 0 1px; border-bottom:1px solid #d8cdb2; }
+  .brief { font-size:9.1px; line-height:1.18; margin-bottom:2px; }
+  .brief .num { min-width:15px; font-size:8.5px; }
+  /* footer */
+  .daynum { background:#b02a1e; color:#fff; padding:2px 10px; font-size:10px; font-weight:700; text-align:center; line-height:1.35; }
+  .daynum b { color:#ffe9a8; }
+  .foot { display:flex; justify-content:space-between; font-size:9px; color:#333; padding:0 2px; }
+  .foot b { color:#14263f; }
+</style></head>
+<body><div class="page">
+<header>
+  <div>
+    <h1>THE WORLD TODAY</h1>
+    <div class="sub">SUNDAY 22 NOVEMBER 2026 — THE WHOLE DAY IN ONE PICTURE</div>
+  </div>
+  <div class="meta"><b>42 stories · 7 regions · map pins 1–42</b><br>Every story: source agency + confidence tag<br>REPORTED / CLAIM / DISPUTED / FORECAST</div>
+</header>
+
+<section class="leads">
+  <article class="lead">
+    <div class="kick"><span class="num">1</span>Europe <span class="tag rep">REPORTED</span></div>
+    <h2>COP31 COLLAPSES IN ANTALYA</h2>
+    <p>No consensus among <b>190+ countries</b>; Antalya Pact not gavelled. Fossil-fuel phase-out phrase stripped from drafts; <b>100+ countries</b> fight to keep it. EU, Panama, Marshall Is., Norway reject text. Longest COP; first breakdown since 2009. <b>$120bn</b> target dropped; <b>90+</b> sign electrification pledge. US absent.</p>
+    <div class="stats">
+      <div class="stat"><b>190+</b><span>nations</span></div>
+      <div class="stat"><b>100+</b><span>for phase-out</span></div>
+      <div class="stat"><b>2.8°C</b><span>on policies*</span></div>
+      <div class="stat"><b>~1.4°C</b><span>warming now</span></div>
+    </div>
+    <div class="src">CNN / Reuters / AP · *FORECAST (UN)</div>
+  </article>
+  <article class="lead">
+    <div class="kick"><span class="num">2</span>Middle East <span class="tag dis">DISPUTED</span> <span class="tag clm">CLAIM</span></div>
+    <h2>IRAN STRIKES BAHRAIN + HORMUZ TANKERS</h2>
+    <p>Missile + drone waves at US bases in Bahrain (Fifth Fleet). IRGC <b>CLAIM</b>: 2 Patriot radars destroyed. Bahrain <b>REPORTED</b>: industrial fire on Sitra, <b>2 injured</b> (1 critical). CENTCOM: F-16 damage claim <b>FALSE</b>. Hormuz: <b>3 tankers hit Sat</b>; 25 in 7 days; 14+ Iranian tankers off Kharg.</p>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>radars CLAIM</span></div>
+      <div class="stat"><b>2</b><span>injured</span></div>
+      <div class="stat"><b>25</b><span>tankers / 7d</span></div>
+      <div class="stat"><b>263</b><span>transits</span></div>
+    </div>
+    <div class="src">Reuters / AP / AFP / Al Jazeera / UKMTO · Sat night 21–22 Nov</div>
+  </article>
+  <article class="lead">
+    <div class="kick"><span class="num">3</span>Europe <span class="tag rep">REPORTED</span></div>
+    <h2>UKRAINE: KYIV 14 MISSING; KRYVYI RIH DOUBLE-TAP</h2>
+    <p>Drone partly collapses a 5-storey block at Dymer nr Kyiv: <b>14 unaccounted</b>, 9 evacuated, 2 injured incl. a teen. Overnight <b>186 attack drones, 161 stopped</b>. Kryvyi Rih: 2 ballistic missiles, then jet Shaheds on rescuers — <b>2 dead</b> (boy 7, paramedic 20), <b>60+ injured</b>, ~25 buildings hit.</p>
+    <div class="stats">
+      <div class="stat"><b>14</b><span>missing</span></div>
+      <div class="stat"><b>186/161</b><span>drones</span></div>
+      <div class="stat"><b>2</b><span>dead</span></div>
+      <div class="stat"><b>60+</b><span>injured</span></div>
+    </div>
+    <div class="src">Reuters / AP · Sun morning 22 Nov; Kryvyi Rih toll updated 22 Nov</div>
+  </article>
+</section>
+
+<section class="mid">
+  <div class="cards">
+    <article class="card"><div class="kick"><span class="num">4</span>N.America <span class="tag rep">REPORTED</span></div>
+      <h3>MARKETS: AI SELLOFF = CORRECTION</h3><p>S&amp;P <b>−3.7%</b> to <b>6,910</b> (7th down day, correction). Nasdaq <b>−5.3%</b>, worst week since Mar 2020. Nvidia <b>−14%</b>; ANT −8.5%.</p><div class="src">AP / WSJ · Fri 20 Nov close, fallout 22 Nov</div></article>    <article class="card"><div class="kick"><span class="num">5</span>Latin America <span class="tag rep">REPORTED</span></div>
+      <h3>MEXICO: 'EL CHAPO ISIDRO' TAKEN</h3><p>FBI Ten Most Wanted (<b>$5m</b>) captured in Guasave. 8 arrested; <b>11 dead</b> (7 gunmen, 4 soldiers). US intel credited.</p><div class="src">AP / CNN / WSJ · raid Fri night, announced Sat</div></article>
+    <article class="card"><div class="kick"><span class="num">6</span>Asia-Pacific <span class="tag rep">REPORTED</span></div>
+      <h3>SHENZHEN FALLOUT</h3><p>Trump–Xi–Putin fallout: 4-point peace declaration, no Ukraine/Iran mention. 'Yalta 2.0' fears.</p><div class="src">Reuters / AP · summit Thu 19 Nov; fallout 22 Nov</div></article>
+    <article class="card"><div class="kick"><span class="num">7</span>World <span class="tag rep">REPORTED</span></div>
+      <h3>ICJ: MYANMAR GENOCIDE — SANCTIONS CALLS</h3><p>World Court: genocide vs Rohingya (2017) — first state finding. Sanctions urged 22 Nov. Ruling 19 Nov: DATE CHECK.</p><div class="src">ICJ / AP</div></article>
+    <article class="card"><div class="kick"><span class="num">8</span>Middle East <span class="tag rep">REPORTED</span></div>
+      <h3>ISRAEL: EISENKOT INVITES LIKUD</h3><p>Eisenkot <b>67</b> vs Netanyahu <b>46</b>; <b>61/120</b> needed, no bloc has it. Netanyahu caretaker PM. Talks open Sun.</p><div class="src">AP / Times of Israel · mandate expires early Dec</div></article>
+    <article class="card"><div class="kick"><span class="num">9</span>Asia-Pacific <span class="tag rep">REPORTED</span></div>
+      <h3>INDONESIA: CANDY FACTORY FIRE</h3><p>Milkita plant, Banten: <b>3+ dead, 36 unaccounted</b> (police ~50 — DISPUTED). 15 rescued; 300 inside (co.) vs ~60 (gov.).</p><div class="src">Reuters / AP · fire Sat 21 Nov, search Sun 22 Nov</div></article>
+    <article class="card"><div class="kick"><span class="num">10</span>World-Space <span class="tag rep">REPORTED</span></div>
+      <h3>SPACE: BEPICOLOMBO AT MERCURY</h3><p>Captured after 8-year cruise (<b>$2bn</b>). Separate 9–10 Dec; science Apr 2027 (<span class="tag frc">FORECAST</span>). ESA: 00:56 UTC.</p><div class="src">ESA / JAXA / AP · launched 20 Oct 2018</div></article>
+    <article class="card"><div class="kick"><span class="num">11</span>Asia-Pacific <span class="tag rep">REPORTED</span></div>
+      <h3>KOREA: MINISTER QUITS OVER AI CHEATING</h3><p>Choi Kyo-jin resigns days before entrance exams amid AI cheating scandal.</p><div class="src">Yonhap / AP · Sun 22 Nov</div></article>
+    <article class="card"><div class="kick"><span class="num">12</span>N.America <span class="tag rep">REPORTED</span></div>
+      <h3>FBI DATABASE HACKED</h3><p>FBI probes reported NCIC breach (fingerprints, wanted lists). Trump confirms breach. Scope unconfirmed — <span class="tag clm">CLAIM</span>.</p><div class="src">AP / CNBC · 22 Nov</div></article>
+    <article class="card"><div class="kick"><span class="num">13</span>Europe <span class="tag rep">REPORTED</span></div>
+      <h3>DENMARK EXPELS RUSSIAN ATTACHÉ</h3><p>Defence attaché expelled over an alleged plot; non-essential visas for Russians restricted.</p><div class="src">AP · 22 Nov</div></article>
+    <article class="card"><div class="kick"><span class="num">14</span>Middle East <span class="tag dis">DISPUTED</span></div>
+      <h3>GAZA + WEST BANK</h3><p>Strikes go on despite ceasefire framework; aid vehicle hit; 3 killed (hospital) vs Islamic Jihad claim; settler attacks rise.</p><div class="src">AP / Reuters</div></article>
+    <article class="card"><div class="kick"><span class="num">15</span>Africa <span class="tag rep">REPORTED</span></div>
+      <h3>NIGERIA: BOAT CAPSIZES, 24 DEAD</h3><p>Boat carrying funeral mourners capsizes in Bayelsa; <b>24 dead</b>.</p><div class="src">AP · 22 Nov</div></article>
+  </div>
+
+  <div class="rail">
+    <div class="box">
+      <h4>World map — pins 1–42 = story numbers</h4>
+      <div class="mapwrap" id="map">
+        <svg width="100%" height="176" viewBox="0 0 352 196" preserveAspectRatio="none">
+          <g fill="#9db98a" stroke="#6d8560" stroke-width="0.7">
+            <path d="M12,13 L39,7 L68,10 L88,9 L98,19 L108,29 L112,39 L108,48 L103,54 L98,63 L97,72 L89,66 L81,72 L81,80 L88,88 L95,96 L99,96 L95,88 L86,88 L76,83 L70,76 L65,66 L59,58 L55,42 L47,28 L29,22 L18,20 Z"/>
+            <path d="M101,99 L113,95 L125,102 L133,114 L142,121 L138,131 L129,147 L120,160 L112,175 L110,188 L105,182 L105,168 L108,146 L108,136 L101,127 L98,115 Z"/>
+            <path d="M159,88 L166,67 L170,58 L186,55 L195,63 L205,64 L209,70 L214,80 L218,92 L226,92 L223,104 L216,118 L215,131 L210,142 L203,158 L194,161 L190,149 L188,131 L185,111 L185,104 L168,104 L163,98 Z"/>
+            <path d="M167,47 L167,55 L174,55 L179,48 L183,45 L188,45 L190,44 L194,51 L199,51 L199,55 L202,54 L204,50 L205,42 L203,39 L200,37 L196,31 L194,28 L197,22 L201,22 L205,19 L205,7 L196,7 L188,15 L181,22 L176,34 L174,37 L171,39 L174,45 Z"/>
+            <path d="M171,37 L173,32 L171,28 L168,29 L170,34 Z"/>
+            <path d="M205,57 L211,57 L211,61 L209,69 L214,79 L218,92 L220,92 L225,88 L230,85 L234,77 L232,70 L236,73 L241,73 L247,80 L247,98 L252,98 L255,91 L255,88 L261,80 L264,77 L266,86 L269,86 L272,95 L274,101 L277,107 L278,96 L280,96 L283,91 L281,86 L284,80 L288,77 L292,73 L293,69 L295,64 L295,55 L292,58 L300,54 L301,51 L303,48 L305,47 L308,44 L311,42 L313,39 L315,37 L315,29 L323,22 L332,15 L342,13 L350,15 L350,7 L323,7 L293,4 L264,0 L235,9 L220,10 L210,15 L205,22 L205,37 L204,50 Z"/>
+            <path d="M311,55 L313,54 L314,50 L315,45 L313,48 L312,54 Z"/>
+            <path d="M287,142 L288,150 L289,159 L292,161 L298,158 L303,156 L308,161 L311,161 L313,165 L318,165 L323,164 L326,156 L326,149 L324,145 L319,137 L315,126 L315,130 L313,136 L309,131 L308,127 L305,126 L302,131 L300,130 L296,134 L291,139 Z"/>
+          </g>
+          <g fill="#9db98a"><circle cx="274" cy="110" r="2.4"/><circle cx="283" cy="112" r="2.4"/><circle cx="293" cy="112" r="2.4"/><circle cx="303" cy="114" r="2.2"/></g>
+        </svg>
+      </div>
+      <div style="font-size:8.5px;color:#555;margin-top:3px;">Pin 10 = Mercury (off-map). Pin 42 = Las Vegas / Turin / Geneva sport.</div>
+    </div>
+    <div class="box">
+      <h4>UTC timeline — how the day unfolded</h4>
+      <div class="tl">
+        <b>FRI 20</b> US close: S&amp;P 6,910 · <b>FRI NIGHT</b> Guasave raid; Kryvyi Rih missiles ·
+        <b>SAT 21</b> Hormuz tankers; Bahrain strikes; Indonesia fire ~09:30 UTC; Bepi burn 18:24 UTC ·
+        <b>SUN 00:56</b> ESA confirms Mercury capture · <b>SUN 03:56</b> Indonesia search: 36 missing ·
+        <b>SUN AM</b> Kyiv drone, 14 missing; COP31 collapses; Korea minister quits; Eisenkot–Likud talks open
+      </div>
+    </div>
+    <div class="box">
+      <h4>Date check — what counts as 22 Nov news</h4>
+      <div class="dc">Counted = happened or first reported <b>Sun 22 Nov 2026</b> (any time zone). <b>Background only, NOT 22 Nov news:</b> Anthropic IPO debut 18–19 Nov (only Fri −8.5% + fallout counted) · Shenzhen summit Thu 19 Nov · ICJ ruling 19 Nov · Mexico capture, Kryvyi strike, US close Fri 20 Nov · Bepi orbit Sat 21 Nov · COP28 2023 · Palisades fire 2025.</div>
+    </div>
+  </div>
+</section>
+
+<section class="briefs">
+  <h4>The day in brief — stories 16–42</h4>
+  <div class="bcols">
+    <div class="bcol">
+      <h5>NORTH AMERICA</h5>
+      <div class="brief"><span class="num">16</span>US blocks China remote access to AI chips; Beijing slams move. Truce expires 10 Jan 2027. <span class="tag rep">REPORTED</span> <span class="tag frc">FORECAST</span></div>
+      <div class="brief"><span class="num">17</span>Man convicted of starting 2025 Palisades fire, Los Angeles. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">18</span>Seattle airport jet-bridge arrests draw outcry. <span class="tag rep">REPORTED</span></div>
+      <h5>LATIN AMERICA</h5>
+      <div class="brief"><span class="num">19</span>Argentina approves <b>$50bn</b> LNG export project. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">20</span>Bolsonaro in ICU, Brasilia — bowel obstruction; serving 27-yr sentence. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">21</span>Peru <b>M6.7</b> quake, Junín Andes; injuries, homes damaged. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">22</span>Brazil storm Tupanciretã kills 3, gusts <b>114 km/h</b>. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">23</span>Haiti–El Salvador prison-build deal; Bukele seeks 3rd term. <span class="tag rep">REPORTED</span></div>
+    </div>
+    <div class="bcol">
+      <h5>EUROPE</h5>
+      <div class="brief"><span class="num">24</span>Russian ship Sparta II burns in Gulf of Finland after suspected UA drones. <span class="tag rep">REPORTED</span></div>      <div class="brief"><span class="num">25</span>Russian missiles + drone fall in SE Poland; NATO: violation. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">26</span>UK–EU deals; Burnham eyes rejoining; food deal hailed. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">27</span>Turkey takes control of last major independent news channel. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">28</span>Spain: uncertainty ahead of 29 Nov early election. <span class="tag frc">FORECAST</span></div>
+      <div class="brief"><span class="num">29</span>France: 3 police sentenced (racist assault); 4th weekend protests. <span class="tag rep">REPORTED</span></div>
+      <h5>MIDDLE EAST</h5>
+      <div class="brief"><span class="num">30</span>Houthis fire missiles at Saudi Arabia; 3 intercepted over Riyadh. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">31</span>Lebanon: Aoun wants Israeli withdrawal, end arms outside state. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">32</span>Saudi triples oil stored in Japan. <span class="tag rep">REPORTED</span></div>
+    </div>
+    <div class="bcol">
+      <h5>AFRICA</h5>
+      <div class="brief"><span class="num">33</span>Sudan: <b>~1,630</b> civilian deaths Jan–Oct 2026 from drone strikes (UN). <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">34</span>Phumzile Mlambo-Ngcuka dies at 71 (SA dep. pres. 2005–08; UN Women 2013–21). <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">35</span>DRC Ebola: health workers attacked amid misinformation. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">36</span>South Africa ANC struggles to form local coalitions. <span class="tag rep">REPORTED</span></div>
+      <h5>ASIA-PACIFIC</h5>
+      <div class="brief"><span class="num">37</span>EU–Indonesia trade deal: tariffs scrapped on up to <b>98.5%</b> of goods. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">38</span>China–Japan rift: Takaichi Taiwan remarks, mineral curbs. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">39</span>Bangladesh garment strikes + clashes, Savar. <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">40</span>India Manipur: adulterated alcohol kills <b>11+</b>, 180+ in hospital. <span class="tag rep">REPORTED</span></div>
+    </div>
+    <div class="bcol">
+      <h5>WORLD / SCIENCE / SPORT</h5>
+      <div class="brief"><span class="num">41</span>One-time CRISPR therapy cuts LDL cholesterol <b>52%</b> (US study). <span class="tag rep">REPORTED</span></div>
+      <div class="brief"><span class="num">42</span>SPORT: Verstappen wins Las Vegas GP; Alcaraz to ATP Final; Wembanyama 50, Harden 51; KC Current 1st NWSL title; chess title match opens Geneva. <span class="tag rep">REPORTED</span></div>
+      <h5>HOW TO READ</h5>
+      <div class="brief">Number = story. Pin on map = where it happened. Tag = confidence: <b>REPORTED</b> confirmed · <b>CLAIM</b> one side says so · <b>DISPUTED</b> sides disagree · <b>FORECAST</b> expected. Agency under each story = source. All 42 happened or were first reported <b>Sun 22 Nov 2026</b>.</div>
+    </div>
+  </div>
+</section>
+
+<div class="daynum">DAY IN NUMBERS — <b>S&amp;P 6,910 −3.7%</b> · Nasdaq −5.3% · Nvidia $125.53 −14% · ANT −8.5% · Brent $89.95 · Gold $3,515 · Nikkei −5.06% · Sensex +2.3% · <b>67 vs 46 (61/120)</b> · $81.3bn IPO · $5m reward · <b>14 missing</b> · 186/161 drones · <b>190+ COP nations</b> · 98.5% tariffs scrapped</div>
+<div class="foot"><span><b>Sources:</b> Reuters · AP · AFP · CNN · WSJ · ESA/JAXA · UKMTO · Yonhap · ICJ — agency printed on every story</span><span><b>THE WORLD TODAY</b> · Sun 22 Nov 2026 · 42 stories, zero empty space</span></div>
+</div>
+<script>
+  const pins = [
+    [1,30.7,36.9],[2,50.6,26.2],[3,30.5,50.4],[4,-74,40.7],[5,-108.5,25.6],[6,114.1,22.5],
+    [7,4.3,52.1],[8,35.2,31.8],[9,106.1,-6.4],[11,127,37.6],[12,-77,38.9],[13,12.6,55.7],
+    [14,34.3,31.5],[15,6,4.9],[16,116.4,39.9],[17,-118.2,34.1],[18,-122.3,47.6],[19,-58.4,-34.6],
+    [20,-47.9,-15.8],[21,-75.2,-11.2],[22,-53.8,-29.1],[23,-72.3,19.1],[24,27,59.9],[25,22,50],
+    [26,-0.1,51.5],[27,29,41],[28,-3.7,40.4],[29,2.35,48.9],[30,46.7,24.6],[31,35.5,33.9],
+    [32,139.7,35.7],[33,30,13],[34,28.2,-25.7],[35,23,-3],[36,25,-29],[37,4.35,50.85],
+    [38,129,33],[39,90.3,23.9],[40,93.9,24.8],[41,-100,39],[42,-115.1,36.2]
+  ];
+  const map = document.getElementById('map');
+  const W = map.clientWidth, H = 176;
+  for (const [n, lon, lat] of pins) {
+    const d = document.createElement('div');
+    d.className = 'pin'; d.textContent = n;
+    d.style.left = ((lon + 180) / 360 * W) + 'px';
+    d.style.top = ((75 - lat) / 130 * H) + 'px';
+    map.appendChild(d);
+  }
+  const m10 = document.createElement('div');
+  m10.className = 'pin'; m10.textContent = '10';
+  m10.style.left = (W - 10) + 'px'; m10.style.top = '12px'; m10.style.background = '#5b5bd6';
+  map.appendChild(m10);
+</script>
+</body></html>
